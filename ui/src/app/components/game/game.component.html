@@ -1,0 +1,31 @@
+<div class="all-content">
+    <div class="div-score">
+        {{ countSaved }}
+    </div>
+
+    <div *ngFor="let meteor of meteorsArray" [ngStyle]="{ 'display': isGameOver ? 'none' : 'flex'}" class="item">
+        <!-- <i class="fa-solid fa-meteor i" [ngStyle]="{ 'left.vw': meteor.left }" [ngClass]="{ 'animated': meteor.animated }" (mouseover)="gameOver($event)"></i> -->
+        <img src="../../../assets/people.gif" [ngStyle]="{ 'left.vw': meteor.left }" [ngClass]="{ 'animated': meteor.animated }" class="people">
+        <img src="../../../assets/rock.png" [ngStyle]="{ 'left': 'calc(' + meteor.left + 'vw - 9vh)' }" [ngClass]="{ 'animated': meteor.animated }" class="rock">
+    </div>
+    
+    <div class="div-message" *ngIf="isGameOver">
+        <span>
+            Game Over
+        </span>
+
+        <div class="buttons">
+            <div class="button" (click)="restart()">
+                Recomeçar
+            </div>
+
+            <div class="button">
+                Login
+            </div>
+        </div>        
+    </div>
+
+    <div class="ship" [ngStyle]="{ 'left': positionX + 'px' }">
+        <img src="../../../assets/saturn-v.png">
+    </div>
+</div>

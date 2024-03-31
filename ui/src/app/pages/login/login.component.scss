@@ -1,0 +1,183 @@
+@import '../../../assets/variables.scss';
+
+.all-content{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+
+    .img{
+        width: 100%;
+        height: 100%;
+        background-image: url('../../../assets/background-space-gif.gif');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        display: flex;
+        align-items: center;
+        justify-content: left;
+
+        .game{
+            width: calc(100% - 45vw);
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;   
+            flex-direction: column;    
+            z-index: 99;
+            color: rgba($white-2, .6);
+            animation: fontAnimation 2s infinite alternate; 
+            gap: 2vh;
+            
+            span{
+                font-size: 0;
+                font-family: 'Bit';
+            }
+            
+
+            i{
+                font-size: 2vh;
+                cursor: pointer;
+            }
+
+            i:hover ~ span{
+                font-size: 2vh;
+                cursor: pointer;
+            }
+
+        }
+    }
+
+    .background-color{
+        width: 100%;
+        height: 100%;
+        // background-color: red;
+        background-color: rgba($blue-1, .75);
+        position: absolute;
+        z-index: 1;
+        left: 0;
+        top: 0;
+    };
+
+    .right{
+        width: 45vw;
+        height: 100%;
+        background-color: $blue-1;
+        position: absolute;
+        z-index: 2;
+        // overflow: hidden;
+        right: 0;
+        top: 0;
+        padding: 10vh;
+        gap: 4vh;
+        box-sizing: border-box;
+
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-direction: column;
+        
+        .top{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            flex-direction: column;
+            gap: 3vh;
+
+            i{
+                color: $white-1;
+                font-size: 5vh;
+            }
+
+            span{
+                color: $white-1;
+                font-size: 3vh;
+            }
+        }
+    }
+
+    .row{
+        width: 100%;
+        height: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+
+        .item{
+            width: 100%;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+
+            span{
+                color: $white-1;
+                font-size: 1.3vh;
+            }
+
+            input{
+                border: none;
+                outline: none;
+                height: 5vh;
+                width: 100%;
+                border-radius: .3vh;
+                background-color: rgba($white-2, .6);
+                font-size: 2vh;
+                color: $white-1;
+                padding: 1vh 2vh;
+                box-sizing: border-box;
+            }
+
+            .password{
+                padding-right: 7vh;
+            }
+
+            .icon-password{
+                position: absolute;
+                bottom: 1.5vh;
+                right: 2vh;
+                font-size: 2vh;
+            }
+        }
+
+        .button{
+            width: 100%;
+            height: 5vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: $white-1;
+            background-color: $blue-2;
+            border-radius: .3vh;
+            margin-top: 2vh;
+            cursor: pointer;
+        }
+    }
+}
+
+@media (max-width: 1000px) {
+    .right{
+        padding: 10vh 3vh!important;
+    }
+}
+
+@media (max-width: 700px) {
+    .right{
+        width: 100%!important;
+        height: calc(100% - 15vh)!important;
+        margin-top: 15vh;
+        border-top-left-radius: 5vh;
+        border-top-right-radius: 5vh;
+    }
+}
+
+@keyframes fontAnimation {
+    0% { font-size: 16px; color: rgba($white-2, .4); }
+    50% { font-size: 20px; color: rgba($white-2, .8); }
+    100% { font-size: 16px; color:rgba($white-2, .4); }
+  }

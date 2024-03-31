@@ -1,0 +1,30 @@
+@import '~@fortawesome/fontawesome-free/css/all.css';
+@import './assets/variables.scss';
+
+@font-face {
+    font-family: 'Lexend';
+    src: url('./assets/fonts/Lexend-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Bit';
+    src: url('./assets/fonts/PressStart2P-Regular.ttf') format('truetype');
+}
+  
+body {
+    font-family: 'Lexend';
+    margin: 0;
+}
+  
+html, body { 
+    height: 100%; 
+    user-select: none;
+}
+
+* {
+    font-family: 'Lexend';
+}
+
+.custom-cursor {
+    cursor: url('./assets/cursor.svg'), auto!important;
+}
