@@ -1,16 +1,8 @@
 <div class="all-content">
     <div class="background-color"></div>
-    <div class="img">
-        <div class="game" *ngIf="!isShowGame">
-            <i class="fa-brands fa-space-awesome" (click)="startGame()"></i>
-            <span>
-                Play
-            </span>
-        </div>
-    </div>
-    <app-game *ngIf="isShowGame"></app-game>
+    <div class="img"></div>
 
-    <div class="right" *ngIf="!isShowGame">
+    <div class="right">
         <div class="top">
             <i class="fas fa-moon"></i>
             <span> Moonlight </span>
@@ -21,7 +13,7 @@
                 <span>
                     Usuário
                 </span>
-                <input type="text">
+                <input type="text" [(ngModel)]="email">
             </div>
         </div>
 
@@ -30,13 +22,13 @@
                 <span>
                     Senha
                 </span>
-                <input [type]="isShow ? 'text' : 'password'" class="password">
+                <input [type]="isShow ? 'text' : 'password'" class="password" [(ngModel)]="password">
                 <i class="fas icon-password" [ngClass]="isShow ? 'fa-eye-slash' : 'fa-eye'" (click)="isShow = !isShow"></i>
             </div>
         </div>
 
         <div class="row">
-            <div class="button custom-cursor-pointer">
+            <div class="button custom-cursor-pointer" (click)="login()">
                 <span>
                     Login
                 </span>

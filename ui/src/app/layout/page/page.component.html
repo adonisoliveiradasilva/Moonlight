@@ -1,1 +1,38 @@
-<p>page works!</p>
+<div class="all-content">
+    <div class="side side-left">
+        <div class="top">
+            <img [src]="cachedImageUser" class="img">
+            <span> {{ me.name }}</span>
+        </div>
+        <div class="middle">
+            <ng-container *ngFor="let item of menuArray">
+                <div class="menu-item">
+                    <i class="fas fa-rocket"></i>
+                    <span> {{ item }} </span>
+                </div>
+            </ng-container>
+        </div>
+        <div class="bottom">
+            <i class="fas fa-moon"></i>
+            <span> Moonlight </span>
+        </div>
+    </div>
+    <div class="timeline"></div>
+    <div class="side side-right">
+        <div class="middle">
+            <ng-container *ngFor="let item of infoArray">
+                <div class="menu-item">
+                    <div class="title">
+                        <i class="fas" [ngClass]="item.icon"></i>
+                        <span> {{ item.name }} </span>
+                    </div>
+                    <div class="menu-child">
+                        <ng-container *ngFor="let child of item.children">
+                            <a (click)="redirectToExternalLink(child.url)" target="_blank"> {{ child.name }} </a>
+                        </ng-container>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</div>

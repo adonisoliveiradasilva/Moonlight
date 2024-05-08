@@ -1,4 +1,5 @@
-import { Component, Renderer2 } from '@angular/core';
+import { Component } from '@angular/core';
+import { AlertService } from './services/alert/alert.service';
 
 @Component({
   selector: 'app-root',
@@ -6,15 +7,8 @@ import { Component, Renderer2 } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'ui';
+  title = 'Moonlight';
 
-  constructor(private renderer: Renderer2) {}
+  constructor(public sharedAlert: AlertService) {}
 
-  onMouseEnter(): void {
-      this.renderer.addClass(document.body, 'custom-cursor');
-  }
-
-  onMouseLeave(): void {
-      this.renderer.removeClass(document.body, 'custom-cursor');
-  }
 }

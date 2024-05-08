@@ -18,36 +18,6 @@
         display: flex;
         align-items: center;
         justify-content: left;
-
-        .game{
-            width: calc(100% - 45vw);
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;   
-            flex-direction: column;    
-            z-index: 99;
-            color: rgba($white-2, .6);
-            animation: fontAnimation 2s infinite alternate; 
-            gap: 2vh;
-            
-            span{
-                font-size: 0;
-                font-family: 'Bit';
-            }
-            
-
-            i{
-                font-size: 2vh;
-                cursor: pointer;
-            }
-
-            i:hover ~ span{
-                font-size: 2vh;
-                cursor: pointer;
-            }
-
-        }
     }
 
     .background-color{
@@ -175,9 +145,3 @@
         border-top-right-radius: 5vh;
     }
 }
-
-@keyframes fontAnimation {
-    0% { font-size: 16px; color: rgba($white-2, .4); }
-    50% { font-size: 20px; color: rgba($white-2, .8); }
-    100% { font-size: 16px; color:rgba($white-2, .4); }
-  }
