@@ -57,9 +57,13 @@
             flex-direction: column;
             gap: 3vh;
 
-            i{
-                color: $white-1;
-                font-size: 5vh;
+            .i{
+                width: 5vh;
+                height: 5vh;
+                background-image: url('../../../assets/rock.png');
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
             }
 
             span{

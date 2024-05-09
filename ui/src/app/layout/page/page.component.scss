@@ -28,8 +28,10 @@
             .img{
                 width: 4vh;
                 height: 4vh;
-                background-color: white;
+                background-color: $white-1;
                 border-radius: 100%;
+                object-fit: cover;
+                object-position: center;
             }
 
             span{
@@ -49,8 +51,13 @@
             gap: 1vh;
             color: $white-1;
             
-            i{
-                font-size: 2vh;   
+            .i{
+                width: 2vh;
+                height: 2vh;
+                background-image: url('../../../assets/rock.png');
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
             }
 
             span{

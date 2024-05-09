@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { to64decode } from 'src/app/helpers/base64';
-import { IInfo } from 'src/app/interfaces/page/IInfo';
+import { IChild, IInfo } from 'src/app/interfaces/page/IInfo';
 import { IUser } from 'src/app/interfaces/user/IUser';
 
 @Component({
@@ -12,7 +12,7 @@ import { IUser } from 'src/app/interfaces/user/IUser';
 export class PageComponent {
   me: IUser
   cachedImageUser: string;
-  menuArray!: string[]
+  menuArray!: IChild[]
   infoArray!: IInfo[]
 
   constructor(private cookieService: CookieService,
@@ -27,7 +27,15 @@ export class PageComponent {
   }
 
   getPageArrays(){
-    this.menuArray = ['Reservar viagens', 'Suas viagens', 'Astronautas', 'Foguetes', 'Missões', 'Administradores']
+    this.menuArray = [
+      { name: 'Suas viagens', url: 'your_trips'}, 
+      { name: 'Reservar viagens', url: 'reserve_trips'}, 
+      { name: 'Astronautas', url: 'astronauts'}, 
+      { name: 'Foguetes', url: 'rockets'}, 
+      { name: 'Missões', url: 'missions'}, 
+      { name: 'Administradores', url: 'administrators'}, 
+    ]
+
     this.infoArray = [
       {
         name: 'Mais sobre o mundo espacial',
@@ -92,5 +100,18 @@ export class PageComponent {
 
   redirectToExternalLink(url: string){
     window.open(url, '_blank');  
+  }
+  
+  getAccess(url: string): boolean{
+    switch (this.me.type_user) {
+      case 'astronaut':
+        return !['administrators', 'astronauts', 'rockets', 'missions'].includes(url)    
+      case 'administrator':
+        return !['your_trips', 'administrators', 'reserve_trips'].includes(url) 
+      case 'houston':
+        return !['your_trips', 'reserve_trips'].includes(url) 
+      default:
+        return false
+    }
   }
 }
