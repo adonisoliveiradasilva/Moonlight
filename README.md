@@ -29,7 +29,7 @@
 
 # Como iniciar o projeto API
 # acesse a pasta Moonlight/api/app
-# instale as dependências: pip install flask flask_restful mysql-connector-python Flask-CORS
+# instale as dependências: pip install flask flask_restful mysql-connector-python Flask-CORS PyJWT
 # inicialize o projeto: python app.py
 # verifique em qual rota ficará disponível, por padrão acesse em seu navegador: localhost:5000
 

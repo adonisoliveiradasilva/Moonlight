@@ -1,9 +1,13 @@
 import mysql.connector
+import jwt
+import base64
+
 from flask import jsonify, request 
 from flask_restful import Resource
 from config import DB_CONFIG
 from datetime import datetime
-import base64
+from datetime import datetime, timedelta
+
 
 class Login(Resource):
     
@@ -44,6 +48,12 @@ class Login(Resource):
 
         # Verificar se o usuário foi encontrado
         if user:
+            secret_key = 'TW9vbmxpZ2h0'
+            token = jwt.encode({'email': user[0], 'exp': datetime.utcnow() + timedelta(hours=1)}, secret_key, algorithm='HS256')
+            
+            decoded_token = jwt.decode(token, secret_key, algorithms=['HS256'])
+            print(decoded_token)
+            
             # Criando um dicionário com os dados do usuário
             user_data = {
                 'email': user[0],
@@ -52,7 +62,8 @@ class Login(Resource):
                 'type_user': user[3],
                 'image': user[4],  # Supondo que o campo image já contenha o caminho para a imagem
                 'created_at': user[5].strftime('%Y-%m-%d %H:%M:%S') if user[5] else None,
-                'updated_at': user[6].strftime('%Y-%m-%d %H:%M:%S') if user[6] else None
+                'updated_at': user[6].strftime('%Y-%m-%d %H:%M:%S') if user[6] else None,
+                'token': token
             }
 
             return {'message': 'Login realizado com sucesso', 'data': user_data}, 200
