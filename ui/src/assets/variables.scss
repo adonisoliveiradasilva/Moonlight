@@ -14,3 +14,53 @@ $green-1: #3FCE67;
 $orange-1: #E99313;
 
 $red-1: #BF0000;
+
+.primary-button{
+    padding: 1vh 2vh;
+    border-radius: .3vh;
+    background-color: $blue-2;
+    color: $white-3;
+    cursor: pointer;
+}
+
+.row{
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.search{
+    width: 25vh;
+    height: 3vh;
+    background-color: rgba($white-1, .7);
+    display: flex;
+    align-items: center;
+    position: relative;
+    border-radius: 3vh;
+    box-sizing: border-box;
+    padding: 0 3vh 0 1vh;
+    color: $white-1;
+
+    input{
+        background-color: transparent;
+        border: none;
+        outline: none;
+        width: 100%;
+        color: $white-1;
+    }
+
+    i{
+        position: absolute;
+        right: .2vh;
+        background-color: $blue-2;
+        height: 2.8vh;
+        width: 2.8vh;
+        border-radius: 2.8vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+}

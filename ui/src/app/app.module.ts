@@ -10,6 +10,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AlertStatusComponent } from './components/alert/alert-status/alert-status.component';
+import { MissionsComponent } from './pages/missions/missions.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { AlertStatusComponent } from './components/alert/alert-status/alert-stat
     LoginComponent,
     PageNotFoundComponent,
     AlertStatusComponent,
+    MissionsComponent,
   ],
   imports: [
     BrowserModule,

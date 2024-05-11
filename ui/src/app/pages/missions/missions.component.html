@@ -1,0 +1,51 @@
+<div class="all-content">
+    <div class="row">
+        <div class="title">
+            Missões
+        </div>
+    </div>
+    <div class="row">
+        <div class="top">
+            <div class="primary-button">
+                Criar Missão
+            </div>
+            <div class="search">
+                <input type="text" [(ngModel)]="search" (keyup.enter)="searchItems()">
+                <i class="fas fa-magnifying-glass" (click)="searchItems()"></i>
+            </div>
+            <span (click)="choseFilter()">
+                {{ getFilterName() }}
+                <i class="fas" [ngClass]="!orderByDesc ? 'fa-arrow-down' : 'fa-arrow-up'"></i>
+            </span>
+        </div>
+    </div>
+    <div class="content">
+        <ng-container *ngFor="let item of getDisplayedRows()">
+            <div class="item">
+                <span class="item-title"> {{item.name}} </span>
+                <div class="item-content">
+                    <div class="item-left">
+                        <div class="item-image">
+                            <img [src]="getRocketImage(item.image_rocket)" *ngIf="item.image_rocket">
+                            <i class="fas fa-shuttle-space"></i>
+                        </div>
+                    </div>
+                    <div class="item-right">
+                        <span> <i class="fas fa-map"></i> Rota: {{ item.route }} </span>
+                        <span> <i class="fas fa-calendar-days"></i> Data de saída: {{ item.departure_date }} </span>
+                        <span> <i class="fas fa-calendar-days"></i> Data de chegada: {{ item.return_date }} </span>
+                        <span> <i class="fas fa-rocket"></i> Foguete: {{ item.name_rocket}} </span>
+                        <span> <i class="fas fa-user-astronaut"></i> Lugares Disponíveis: {{ item.place }} </span>
+                        <span> <i class="fas fa-envelope"></i> Email do Administrador: {{ item.email_creator }} </span>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+    <div class="bottom">
+        <div class="paginator">
+            <i class="fas fa-arrow-left" *ngIf="currentPage != 1" (click)="currentPage = currentPage - 1"></i>
+            <i class="fas fa-arrow-right" *ngIf="filteredDataSource.length >= currentPage * itemsPerPage" (click)="currentPage = currentPage + 1"></i>
+        </div>
+    </div>
+</div>

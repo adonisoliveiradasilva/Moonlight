@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { to64decode } from 'src/app/helpers/base64';
 import { IChild, IInfo } from 'src/app/interfaces/page/IInfo';
@@ -16,6 +17,7 @@ export class PageComponent {
   infoArray!: IInfo[]
 
   constructor(private cookieService: CookieService,
+    private router: Router
   ){
     this.me = to64decode(this.cookieService.get('me'))
     this.cachedImageUser = `data:image/png;base64,${localStorage.getItem('cachedImage')}`
@@ -96,6 +98,10 @@ export class PageComponent {
         ]
       }
     ]
+  }
+
+  navigate(url: string){
+    this.router.navigate([url])
   }
 
   redirectToExternalLink(url: string){

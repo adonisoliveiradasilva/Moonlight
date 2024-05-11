@@ -6,7 +6,7 @@
         </div>
         <div class="middle">
             <ng-container *ngFor="let item of menuArray">
-                <div class="menu-item" *ngIf="getAccess(item.url)">
+                <div class="menu-item" *ngIf="getAccess(item.url)" (click)="navigate(item.url)">
                     <i class="fas fa-rocket"></i>
                     <span> {{ item.name }} </span>
                 </div>
@@ -17,7 +17,9 @@
             <span> Moonlight </span>
         </div>
     </div>
-    <div class="timeline"></div>
+    <div class="timeline">
+        <router-outlet></router-outlet>
+    </div>
     <div class="side side-right">
         <div class="middle">
             <ng-container *ngFor="let item of infoArray">
