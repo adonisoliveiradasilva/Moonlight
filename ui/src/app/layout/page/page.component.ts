@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { to64decode } from 'src/app/helpers/base64';
@@ -16,6 +16,9 @@ export class PageComponent {
   menuArray!: IChild[]
   infoArray!: IInfo[]
 
+  isShowLeft: boolean = false;
+  isShowRight: boolean = false;
+
   constructor(private cookieService: CookieService,
     private router: Router
   ){
@@ -30,17 +33,17 @@ export class PageComponent {
 
   getPageArrays(){
     this.menuArray = [
-      { name: 'Suas viagens', url: 'your_trips'}, 
-      { name: 'Reservar viagens', url: 'reserve_trips'}, 
-      { name: 'Astronautas', url: 'astronauts'}, 
-      { name: 'Foguetes', url: 'rockets'}, 
-      { name: 'Missões', url: 'missions'}, 
-      { name: 'Administradores', url: 'administrators'}, 
+      { name: 'Your trips', url: 'your_trips'}, 
+      { name: 'Reserve trips', url: 'reserve_trips'}, 
+      { name: 'Astronauts', url: 'astronauts'}, 
+      { name: 'Rockets', url: 'rockets'}, 
+      { name: 'Missions', url: 'missions'}, 
+      { name: 'Administrators', url: 'administrators'}, 
     ]
 
     this.infoArray = [
       {
-        name: 'Mais sobre o mundo espacial',
+        name: 'More about the space world',
         icon: 'fa-satellite',
         children: [
           {
@@ -48,13 +51,13 @@ export class PageComponent {
             url: 'https://www.nasa.gov'
           },
           {
-            name: 'Missões Apollo',
+            name: 'Apollo Missions',
             url: 'https://canaltech.com.br/espaco/da-apollo-1-a-apollo-17-o-que-fez-cada-missao-do-programa-lunar-da-nasa-154105/'
           }
         ]
       },
       {
-        name: 'Filmes recomendados',
+        name: 'Movies Recommended',
         icon: 'fa-film',
         children: [
           {
@@ -80,7 +83,7 @@ export class PageComponent {
         ]
       },
       {
-        name: 'Livros recomendados',
+        name: 'Books Recommended',
         icon: 'fa-book',
         children: [
           {
@@ -120,4 +123,5 @@ export class PageComponent {
         return false
     }
   }
+
 }

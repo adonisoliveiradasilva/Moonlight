@@ -1,22 +1,24 @@
-<div class="all-content">
+<div class="all-content" *ngIf="typeForm == ''">
     <div class="row">
         <div class="title">
-            Missões
+            Missions
         </div>
     </div>
     <div class="row">
         <div class="top">
-            <div class="primary-button">
-                Criar Missão
+            <button class="primary-button" (click)="choseTypeForm('create')">
+                Create mission
+            </button>
+            <div class="display-flex">
+                <div class="search">
+                    <input type="text" [(ngModel)]="search" (keyup.enter)="searchItems()">
+                    <i class="fas fa-magnifying-glass" (click)="searchItems()"></i>
+                </div>
+                <span (click)="choseFilter()">
+                    {{ getFilterName() }}
+                    <i class="fas" [ngClass]="!orderByDesc ? 'fa-arrow-down' : 'fa-arrow-up'"></i>
+                </span>
             </div>
-            <div class="search">
-                <input type="text" [(ngModel)]="search" (keyup.enter)="searchItems()">
-                <i class="fas fa-magnifying-glass" (click)="searchItems()"></i>
-            </div>
-            <span (click)="choseFilter()">
-                {{ getFilterName() }}
-                <i class="fas" [ngClass]="!orderByDesc ? 'fa-arrow-down' : 'fa-arrow-up'"></i>
-            </span>
         </div>
     </div>
     <div class="content">
@@ -27,16 +29,16 @@
                     <div class="item-left">
                         <div class="item-image">
                             <img [src]="getRocketImage(item.image_rocket)" *ngIf="item.image_rocket">
-                            <i class="fas fa-shuttle-space"></i>
+                            <i class="fas fa-shuttle-space"  *ngIf="!item.image_rocket"></i>
                         </div>
                     </div>
                     <div class="item-right">
-                        <span> <i class="fas fa-map"></i> Rota: {{ item.route }} </span>
-                        <span> <i class="fas fa-calendar-days"></i> Data de saída: {{ item.departure_date }} </span>
-                        <span> <i class="fas fa-calendar-days"></i> Data de chegada: {{ item.return_date }} </span>
-                        <span> <i class="fas fa-rocket"></i> Foguete: {{ item.name_rocket}} </span>
-                        <span> <i class="fas fa-user-astronaut"></i> Lugares Disponíveis: {{ item.place }} </span>
-                        <span> <i class="fas fa-envelope"></i> Email do Administrador: {{ item.email_creator }} </span>
+                        <span> <i class="fas fa-map"></i> Route: {{ item.route }} </span>
+                        <span> <i class="fas fa-calendar-days"></i> Departure date: {{ item.departure_date }} </span>
+                        <span> <i class="fas fa-calendar-days"></i> Return date: {{ item.return_date }} </span>
+                        <span> <i class="fas fa-rocket"></i> Rocket: {{ item.name_rocket}} </span>
+                        <span> <i class="fas fa-user-astronaut"></i> Place: {{ item.place }} </span>
+                        <span> <i class="fas fa-envelope"></i> Administrator: {{ item.email_creator }} </span>
                     </div>
                 </div>
             </div>
@@ -45,7 +47,9 @@
     <div class="bottom">
         <div class="paginator">
             <i class="fas fa-arrow-left" *ngIf="currentPage != 1" (click)="currentPage = currentPage - 1"></i>
-            <i class="fas fa-arrow-right" *ngIf="filteredDataSource.length >= currentPage * itemsPerPage" (click)="currentPage = currentPage + 1"></i>
+            <i class="fas fa-arrow-right" *ngIf="filteredDataSource && filteredDataSource.length >= currentPage * itemsPerPage" (click)="currentPage = currentPage + 1"></i>
         </div>
     </div>
 </div>
+
+<app-form-missions [type]="typeForm" *ngIf="typeForm != ''" (typeFormEmit)="choseTypeForm()"></app-form-missions>

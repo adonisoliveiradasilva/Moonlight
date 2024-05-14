@@ -30,12 +30,13 @@ export class LoginService {
     return this.httpClient.post(`${this.API_PATH}/login`, body, { observe: 'response' })
       .pipe(
         catchError((error: HttpErrorResponse) => {
-          if (error.status === 401) {
-            console.error('Email ou senha incorretos');
+        
+        if (error.status === 401) {
+          console.error('Incorrect email or password');
           } else if (error.status === 500) {
-            console.error('Erro interno do servidor');
+          console.error('Internal server error');
           } else {
-            console.error('Erro desconhecido');
+          console.error('Unknown error');
           }
           return throwError(error);
         })

@@ -40,7 +40,7 @@ export class LoginComponent {
         this.router.navigate(['/']);
       }
     }, (error: any) => {
-      this.sharedAlert.addAlert({uuid: v4(), type: 'orange', title: 'Usuário ou senha incorretos'})
+      this.sharedAlert.addAlert({uuid: v4(), type: 'orange', title: 'User or password incorrect'})
       // console.error('Erro ao fazer login:', error);
     });
   }

@@ -1,10 +1,14 @@
 <div class="all-content">
-    <div class="side side-left">
+    <div class="side side-left" [ngClass]="isShowLeft ? 'side-expanded' : '' " (mouseleave)="isShowLeft = false">
         <div class="top">
-            <img [src]="cachedImageUser" class="img">
-            <span> {{ me.name }}</span>
+            <div class="display-flex">
+                <img [src]="cachedImageUser" class="img">
+                <span *ngIf="isShowLeft"> {{ me.name }}</span>
+            </div>
+            <i class="fas fa-bars" (click)="isShowLeft = !isShowLeft"></i>
+           
         </div>
-        <div class="middle">
+        <div class="middle" *ngIf="isShowLeft">
             <ng-container *ngFor="let item of menuArray">
                 <div class="menu-item" *ngIf="getAccess(item.url)" (click)="navigate(item.url)">
                     <i class="fas fa-rocket"></i>
@@ -14,21 +18,25 @@
         </div>
         <div class="bottom">
             <div class="i"></div>
-            <span> Moonlight </span>
+            <span *ngIf="isShowLeft"> Moonlight </span>
         </div>
     </div>
     <div class="timeline">
         <router-outlet></router-outlet>
     </div>
-    <div class="side side-right">
+    <div class="side side-right" [ngClass]="isShowRight ? 'side-expanded' : '' " (mouseleave)="isShowRight = false">
+        <div class="top">
+            <i class="fas fa-bars" (click)="isShowRight = !isShowRight"></i>
+        </div>
+
         <div class="middle">
             <ng-container *ngFor="let item of infoArray">
                 <div class="menu-item">
                     <div class="title">
                         <i class="fas" [ngClass]="item.icon"></i>
-                        <span> {{ item.name }} </span>
+                        <span *ngIf="isShowRight"> {{ item.name }} </span>
                     </div>
-                    <div class="menu-child">
+                    <div class="menu-child" *ngIf="isShowRight">
                         <ng-container *ngFor="let child of item.children">
                             <a (click)="redirectToExternalLink(child.url)" target="_blank"> {{ child.name }} </a>
                         </ng-container>
@@ -38,3 +46,5 @@
         </div>
     </div>
 </div>
+
+<div class="blurred-background" *ngIf="isShowLeft || isShowRight"></div>

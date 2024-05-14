@@ -70,42 +70,6 @@ export class AuthGuard implements CanActivate {
 
       return false
     }
-
-    // const response = await this.authService.authExpired();
-    // const properties = await cookieToJsonAsync()
-
-    // const routes: any = []
-
-    // if (!response?.success) {
-    //   await this.router.navigate(['/login']);
-    //   return false;
-    // }
-
-    // if (properties.permissions) {
-    //   await asyncForEach(Object.keys(properties.permissions), async (key_module: any) => {
-    //     let module = properties.permissions[key_module]
-
-    //     await asyncForEach(Object.keys(module), async (key_screen: any) => {
-    //       let screen = module[key_screen]
-
-    //       routes.push(screen.screen_url)
-
-    //       if (screen.screen_url == state.url && !screen.screen_permission) {
-    //         addAlert('danger', `${getLanguageCookie('without_permission', this.cookieService.get('language'))}`)
-    //         await this.router.navigate(['/']);
-    //         return
-    //       }
-    //     })
-    //   })
-    // }
-
-    // if (!routes.includes(state.url) && state.url != "/") {
-    //   addAlert('danger', `${getLanguageCookie('without_permission', this.cookieService.get('language'))}`)
-    //   await this.router.navigate([this.router.routerState.snapshot.url]);
-    //   return false
-    // }
-
-    // return true;
   }
 }
 

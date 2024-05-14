@@ -1,5 +1,5 @@
 export interface IMission{
-    id: number;
+    id?: number;
     email_creator: string,
     name_rocket: string,
     name: string,

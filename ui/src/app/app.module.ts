@@ -11,6 +11,10 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { HttpClientModule } from '@angular/common/http';
 import { AlertStatusComponent } from './components/alert/alert-status/alert-status.component';
 import { MissionsComponent } from './pages/missions/missions.component';
+import { FormMissionsComponent } from './components/form/missions/missions.component';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -20,13 +24,17 @@ import { MissionsComponent } from './pages/missions/missions.component';
     PageNotFoundComponent,
     AlertStatusComponent,
     MissionsComponent,
+    FormMissionsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatMenuModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [],
   bootstrap: [AppComponent]

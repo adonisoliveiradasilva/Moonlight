@@ -11,7 +11,7 @@
         <div class="row">
             <div class="item">
                 <span>
-                    Usuário
+                    User
                 </span>
                 <input type="text" [(ngModel)]="email">
             </div>
@@ -20,7 +20,7 @@
         <div class="row">
             <div class="item">
                 <span>
-                    Senha
+                    Password
                 </span>
                 <input [type]="isShow ? 'text' : 'password'" class="password" [(ngModel)]="password">
                 <i class="fas icon-password" [ngClass]="isShow ? 'fa-eye-slash' : 'fa-eye'" (click)="isShow = !isShow"></i>
