@@ -14,6 +14,7 @@ export class MissionsComponent {
   dataSource!: IMission[]
   filteredDataSource!: IMission[]
 
+  parameters: any
   itemsPerPage = 5;
   currentPage = 1;
 
@@ -278,15 +279,19 @@ export class MissionsComponent {
     this.filteredDataSource = this.dataSource.filter((item: IMission) => item.name.toLowerCase().includes(this.search.toLowerCase()))
   }
 
-  choseTypeForm(typeForm: string = ''){
+  choseTypeForm(typeForm: string = '', item?: IMission){
     this.typeForm = typeForm
+    
+    if(item){
+      this.parameters = item
+    }
 
     switch (typeForm) {
       case 'create':
-
+        this.parameters = null
         break;
-    
       default:
+        this.getMissions()
         break;
     }
   }

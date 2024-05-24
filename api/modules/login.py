@@ -68,23 +68,4 @@ class Login(Resource):
             return {'message': 'Login realizado com sucesso', 'data': user_data}, 200
         else:
             return {'message': 'Usuário não encontrado'}, 404
-        
-    def get(self):
-        # Conexão com o banco de dados usando as configurações do arquivo config.py
-        db = mysql.connector.connect(**DB_CONFIG)
-
-        # Criando um cursor para executar consultas
-        cursor = db.cursor()
-
-        # Exemplo de consulta SQL
-        cursor.execute("SELECT * FROM users")
-
-        # Obtendo os resultados da consulta
-        results = cursor.fetchall()
-
-        # Fechando o cursor e a conexão com o banco de dados
-        cursor.close()
-        db.close()
-
-        # Retornando os resultados como JSON
-        return jsonify(results)  # Altere aqui para retornar um dicionário ou lista, se necessário
+ 

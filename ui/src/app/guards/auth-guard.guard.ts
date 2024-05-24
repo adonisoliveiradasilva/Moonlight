@@ -39,33 +39,33 @@ export class AuthGuard implements CanActivate {
 
         if(type_user == 'administrator'){
           if (['your_trips', 'administrators', 'reserve_trips'].includes(routeConfig)) {
-            this.sharedAlert.addAlert({uuid: v4(), type: 'orange', title: 'Acesso negado!'})          
+            this.sharedAlert.addAlert({uuid: v4(), type: 'orange', title: 'Access denied!'})          
             return false;
           }
         }
 
         if(type_user == 'astronaut'){
           if (['administrators', 'astronauts', 'rockets', 'missions'].includes(routeConfig)) {
-            this.sharedAlert.addAlert({uuid: v4(), type: 'orange', title: 'Acesso negado!'})
+            this.sharedAlert.addAlert({uuid: v4(), type: 'orange', title: 'Access denied!'})
             return false;
           }
         }
 
          if(type_user == 'houston'){
           if (['your_trips', 'reserve_trips'].includes(routeConfig)) {
-            this.sharedAlert.addAlert({uuid: v4(), type: 'orange', title: 'Acesso negado!'})
+            this.sharedAlert.addAlert({uuid: v4(), type: 'orange', title: 'Access denied!'})
             return false;
           }
         }
         return true
       }
 
-      this.sharedAlert.addAlert({uuid: v4(), type: 'orange', title: 'Token expirado!'})
+      this.sharedAlert.addAlert({uuid: v4(), type: 'orange', title: 'Token expired!'})
       this.router.navigate(['/login'])
       return false;
     }catch(error){
 
-      this.sharedAlert.addAlert({uuid: v4(), type: 'orange', title: 'Token expirado!'})
+      this.sharedAlert.addAlert({uuid: v4(), type: 'orange', title: 'Token expired!'})
       this.router.navigate(['/login'])
 
       return false

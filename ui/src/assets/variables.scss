@@ -86,7 +86,7 @@ $red-1: #BF0000;
         box-sizing: border-box;
         padding: 0!important;
         position: relative;
-
+        
         span{
             width: 100%;
             text-align: left;
@@ -118,6 +118,7 @@ $red-1: #BF0000;
             border-radius: .4vh;
             color: $white-1;
             font-size: 2vh;
+            border: none;
         }
 
         .date-button{
@@ -257,6 +258,14 @@ $red-1: #BF0000;
     }
 }
 
+.no-pointer{
+    cursor: default!important;
+} 
+
+.disabled-select{
+    background-color: rgba($blue-2, .5)!important;
+}
+
 @media (max-width: 1050px) {
     .primary-button{
         font-size: 1.4vh!important;
@@ -280,6 +289,11 @@ $red-1: #BF0000;
                 height: 3vh!important;
             }
         }
+    }
+
+    .date-button{
+        font-size: 1.3vh!important;
+        top: 2.5vh!important;
     }
     
 }

@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/app/environment/environment';
+import { IMission } from 'src/app/interfaces/mission/IMission';
 
 @Injectable({
   providedIn: 'root'
@@ -26,6 +27,14 @@ export class MissionsService {
   getMissions(): Observable<any[]> {
     return this.httpClient.get<any[]>(`${this.API_PATH}missions`)
       .pipe();
+  }
+
+  createMission(missionData: IMission): Observable<any> {
+    return this.httpClient.post<any>(`${this.API_PATH}missions`, missionData);
+  }
+
+  updateMission(missionData: IMission): Observable<any> {
+    return this.httpClient.put<any>(`${this.API_PATH}missions`, missionData);
   }
   
 }

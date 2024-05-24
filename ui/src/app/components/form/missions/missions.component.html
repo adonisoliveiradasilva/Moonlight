@@ -6,7 +6,7 @@
     </div>
     <div class="row">
         <div class="title">
-            Create mission
+            {{ getTitle() }} 
         </div>
     </div>
 
@@ -16,7 +16,7 @@
             <div class="item-content">
                 <div class="item-left">
                     <div class="item-image">
-                        <img [src]="getRocketImage(item.image_rocket)" *ngIf="item.image_rocket">
+                        <img [src]="getRocketImage()" *ngIf="item.image_rocket">
                         <i class="fas fa-shuttle-space"  *ngIf="!item.image_rocket"></i>
                     </div>
                 </div>
@@ -34,14 +34,14 @@
             <div class="row">
                 <div class="item item-50">
                     <span> Name </span>
-                    <input type="text" [(ngModel)]="item.name">
+                    <input type="text" [(ngModel)]="item.name" [disabled]="getDisabled()">
                 </div>
                 <div class="item item-50">
                     <span> Rocket </span>
-                    <div class="select" mat-button [matMenuTriggerFor]="menu">
+                    <button class="select" mat-button [matMenuTriggerFor]="menu" [disabled]="getDisabled()" [ngClass]="getDisabled() ? 'no-pointer disabled-select' : 'pointer' ">
                         <span> {{ item.name_rocket ? item.name_rocket : 'Select' }} </span>
                         <i class="fas fa-caret-down"></i>
-                    </div>                    
+                    </button>                    
                 </div>
                 <mat-menu #menu="matMenu">
                     <div class="menu">
@@ -52,7 +52,7 @@
                         <div class="scroll">
                           <ng-container *ngFor="let rocket of rocketArray">
                             <ng-container *ngIf="rocket.name.toLowerCase().includes(searchRocket.toLowerCase())">
-                              <div class="item-menu" (click)="choseItemSelect('rocket', rocket.name)">
+                              <div class="item-menu" (click)="choseItemSelect('rocket', rocket)">
                                 <span [ngClass]="rocket.name == item.name_rocket ? 'valid-span' : 'invalid-span'">
                                   {{ rocket.name }}
                                 </span>
@@ -66,17 +66,17 @@
             <div class="row">
                 <div class="item item-50">
                     <span> Departure date </span>
-                    <input type="text" [(ngModel)]="item.departure_date" [matDatepicker]="departure_date" (input)="formatDate($event)">
+                    <input [(ngModel)]="item.departure_date" [matDatepicker]="departure_date" (input)="formatDate($event, 'departure')" [disabled]="getDisabled()">
                     <mat-datepicker #departure_date></mat-datepicker>
-                    <button class="date-button" (click)="departure_date.open()">
+                    <button class="date-button" (click)="departure_date.open()" [disabled]="getDisabled()" [ngClass]="getDisabled() ? 'no-pointer' : 'pointer' ">
                         <i class="fas fa-calendar-days"></i>
                     </button>
                 </div>
                 <div class="item item-50">
                     <span> Return date </span>
-                    <input type="text" [(ngModel)]="item.return_date" [matDatepicker]="return_date" (input)="formatDate($event)">
+                    <input [(ngModel)]="item.return_date" [matDatepicker]="return_date" (input)="formatDate($event, 'return')" [disabled]="getDisabled()">
                     <mat-datepicker #return_date></mat-datepicker>
-                    <button class="date-button" (click)="return_date.open()">
+                    <button class="date-button" (click)="return_date.open()" [disabled]="getDisabled()" [ngClass]="getDisabled() ? 'no-pointer' : 'pointer' ">
                         <i class="fas fa-calendar-days"></i>
                     </button>
                 </div>
@@ -84,11 +84,11 @@
             <div class="row">
                 <div class="item item-70">
                     <span> Route </span>
-                    <input type="text" [(ngModel)]="item.route">
+                    <input type="text" [(ngModel)]="item.route" [disabled]="getDisabled()">
                 </div>
                 <div class="item item-30">
                     <span> Place </span>
-                    <input type="number" min="0" max="100" [(ngModel)]="item.place">
+                    <input type="number" min="0" max="100" [(ngModel)]="item.place" [disabled]="getDisabled()">
                 </div>
             </div>
         </div>
@@ -96,9 +96,8 @@
 
     <div class="row-buttons">
         <button class="primary-button" *ngIf="getDisplayedButton('delete')"> Delete </button>
-        <button class="primary-button" *ngIf="getDisplayedButton('edit')"> Edit </button>
+        <button class="primary-button" *ngIf="getDisplayedButton('edit')" (click)="edit()"> {{ !isEdit ? 'Edit' : 'Cancel' }}  </button>
         <button class="primary-button" *ngIf="getDisplayedButton('save')" (click)="saveMission()"> Save </button>
-
     </div>
 
     

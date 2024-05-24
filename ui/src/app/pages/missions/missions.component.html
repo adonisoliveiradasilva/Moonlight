@@ -23,7 +23,7 @@
     </div>
     <div class="content">
         <ng-container *ngFor="let item of getDisplayedRows()">
-            <div class="item">
+            <div class="item" (click)="choseTypeForm('view', item)">
                 <span class="item-title"> {{item.name}} </span>
                 <div class="item-content">
                     <div class="item-left">
@@ -47,9 +47,9 @@
     <div class="bottom">
         <div class="paginator">
             <i class="fas fa-arrow-left" *ngIf="currentPage != 1" (click)="currentPage = currentPage - 1"></i>
-            <i class="fas fa-arrow-right" *ngIf="filteredDataSource && filteredDataSource.length >= currentPage * itemsPerPage" (click)="currentPage = currentPage + 1"></i>
+            <i class="fas fa-arrow-right" *ngIf="filteredDataSource && filteredDataSource.length > currentPage * itemsPerPage" (click)="currentPage = currentPage + 1"></i>
         </div>
     </div>
 </div>
 
-<app-form-missions [type]="typeForm" *ngIf="typeForm != ''" (typeFormEmit)="choseTypeForm()"></app-form-missions>
+<app-form-missions [type]="typeForm" *ngIf="typeForm != ''" [parameters]="parameters" (typeFormEmit)="choseTypeForm()"></app-form-missions>
