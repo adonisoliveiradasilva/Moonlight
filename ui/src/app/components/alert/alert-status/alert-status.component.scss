@@ -1,0 +1,78 @@
+@import '../../../../assets/variables.scss';
+
+.alert{
+    width: 30vh;
+    height: auto;
+    padding: 0 2vh 0 0;
+    gap: 1vh;
+    background-color: $white-3;
+    display: flex;
+    align-items: center;
+    border-radius: 1vh;
+    // padding-left: 2vh;
+    position: relative;
+    animation: moveLeft .5s ease-in-out forwards;
+
+    .helmet{
+        width: 5vh;
+        height: 5vh;
+        background-image: url('../../../../assets/helmet.png');
+        background-position: center;
+        background-size: 100%;
+        background-repeat: no-repeat;
+        align-self: flex-start;
+    }
+
+    span{
+        font-size: 1.5vh;
+        width: 20vh;
+        height: auto;
+    }
+
+    // .alert_ballom{
+    //     width: 0;
+    //     height: 0;
+    //     border-style: solid;
+    //     border-width: 0 1vh 1vh 0;
+    //     border-color: transparent $white-3 transparent transparent; 
+    //     position: absolute;
+    //     bottom: -.8vh;
+    //     right: 0;
+    //     clip-path: polygon(0 0, 100% 0, 100% 100%); 
+    // }
+
+    .close{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $white-1;
+        border-radius: 100%;
+        width: 3vh;
+        height: 3vh;
+        font-size: 1.3vh;      
+        text-align: center!important;
+        padding: 0!important; 
+        cursor: pointer; 
+    }
+
+    .danger{
+        background-color: $red-1!important;
+    }
+
+    .success{
+        background-color: $green-1!important;
+    }
+
+    .orange{
+        background-color: $orange-1!important;
+    }     
+}
+
+@keyframes moveLeft {
+    from {
+      right: -1vw;
+    }
+    to {
+      right: 0vh;
+    }
+  }

@@ -1,0 +1,38 @@
+<div class="all-content">
+    <div class="background-color"></div>
+    <div class="img"></div>
+
+    <div class="right">
+        <div class="top">
+            <div class="i"></div>
+            <span> Moonlight </span>
+        </div>
+        
+        <div class="row">
+            <div class="item">
+                <span>
+                    User
+                </span>
+                <input type="text" [(ngModel)]="email">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="item">
+                <span>
+                    Password
+                </span>
+                <input [type]="isShow ? 'text' : 'password'" class="password" [(ngModel)]="password">
+                <i class="fas icon-password" [ngClass]="isShow ? 'fa-eye-slash' : 'fa-eye'" (click)="isShow = !isShow"></i>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="button custom-cursor-pointer" (click)="login()">
+                <span>
+                    Login
+                </span>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+<div class="alert">
+    <div class="helmet"></div>
+    <span>
+        {{ title }}
+    </span>
+    
+    <div class="close" [ngClass]="type" (click)="removeAlert()">        
+        <i class="fas fa-xmark"></i>
+    </div>
+
+    <!-- <div class="alert_ballom"></div> -->
+</div>

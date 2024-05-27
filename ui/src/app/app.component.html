@@ -1,0 +1,6 @@
+<router-outlet></router-outlet>
+<div class="background-alerts" *ngIf="sharedAlert?.alertArray!.length >= 1">
+    <ng-container *ngFor="let alert of sharedAlert.alertArray">
+        <app-alert-status *ngIf="alert.visible" [type]="alert.type" [uuid]="alert.uuid" [title]="alert.title"></app-alert-status>
+    </ng-container>
+</div>

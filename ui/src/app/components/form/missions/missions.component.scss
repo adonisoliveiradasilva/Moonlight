@@ -1,0 +1,15 @@
+@import '../../../pages/missions/missions.component.scss';
+
+.icon{
+    padding: 2vh;
+    color: $white-3;
+    font-size: 1.6vh;
+
+    i{
+        cursor: pointer;
+    }
+}
+
+.item{
+    cursor: default!important;
+}
