@@ -95,10 +95,12 @@
     </div>
 
     <div class="row-buttons">
-        <button class="primary-button" *ngIf="getDisplayedButton('delete')"> Delete </button>
+        <button class="primary-button" *ngIf="getDisplayedButton('delete')" (click)="delete()"> Delete </button>
         <button class="primary-button" *ngIf="getDisplayedButton('edit')" (click)="edit()"> {{ !isEdit ? 'Edit' : 'Cancel' }}  </button>
         <button class="primary-button" *ngIf="getDisplayedButton('save')" (click)="saveMission()"> Save </button>
     </div>
+</div>
 
-    
+<div class="background-modal" *ngIf="isDelete">
+    <app-delete *ngIf="isDelete" [type]="'mission'" (closeModal)="closeModalDelete()" [parameters]="parameters"></app-delete>
 </div>

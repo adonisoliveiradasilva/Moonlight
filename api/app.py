@@ -16,8 +16,7 @@ CORS(app)
 db = mysql.connector.connect(**DB_CONFIG, auth_plugin='mysql_native_password')
 
 api.add_resource(Login, '/login')
-api.add_resource(Missions, '/missions')
 api.add_resource(Rockets, '/rockets')
-
+api.add_resource(Missions, '/missions', '/missions/<string:mission_id>')
 if __name__ == '__main__':
     app.run(debug=True)

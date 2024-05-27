@@ -141,4 +141,26 @@ class Missions(Resource):
             return {'message': str(e)}, 500
         except Exception as e:
             return {'message': 'Failed to decode JSON object: ' + str(e)}, 400
-   
+    
+    def delete(self, mission_id):
+        try:
+            if not mission_id:
+                return {'message': 'mission_id is required'}, 400
+
+            db = mysql.connector.connect(**DB_CONFIG)
+            cursor = db.cursor()
+
+            # Conecte-se ao banco de dados e delete a missão
+            sql = "DELETE FROM mission WHERE id = %s"
+
+            cursor.execute(sql, (mission_id,))
+            db.commit()
+            
+            cursor.close()
+            db.close()
+            return {'message': 'Mission deleted successfully'}, 200
+        except Error as e:
+            return {'message': str(e)}, 500
+        except Exception as e:
+            return {'message': 'Failed to decode JSON object: ' + str(e)}, 400
+

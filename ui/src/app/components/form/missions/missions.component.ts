@@ -27,6 +27,7 @@ export class FormMissionsComponent {
   searchRocket: string = ''
   me: any
   isEdit: boolean = false
+  isDelete: boolean = false
 
   constructor(
     private rocketsService: RocketsService,
@@ -160,28 +161,32 @@ export class FormMissionsComponent {
 
 
     if(this.type == 'create'){
-      this.missionsService.createMission(formattedData)
-      .subscribe((response: any) => {
-        this.sharedAlert.addAlert({uuid: v4(), type: 'success', title: 'Mission successfully registered'});
-        this.typeFormEmit.emit()
-      }, (error: any) => {
-        this.sharedAlert.addAlert({uuid: v4(), type: 'danger', title: 'Error saving data!'})
-        console.error('Error saving data:', error);
-      });     
+     this.createMission(formattedData)
     }else{
-      console.log(formattedData)
-      this.missionsService.updateMission(formattedData)
-      .subscribe((response: any) => {
-        console.log('response: ', response)
-        this.sharedAlert.addAlert({uuid: v4(), type: 'success', title: 'Mission successfully registered'});
-        this.typeFormEmit.emit()
-      }, (error: any) => {
-        this.sharedAlert.addAlert({uuid: v4(), type: 'danger', title: 'Error saving data!'})
-        console.error('Error saving data:', error);
-      });     
-    }
+      this.updateMission(formattedData)
+    } 
+  }
 
-    
+  createMission(formattedData: any){
+    this.missionsService.createMission(formattedData)
+    .subscribe((response: any) => {
+      this.sharedAlert.addAlert({uuid: v4(), type: 'success', title: 'Mission successfully registered'});
+      this.typeFormEmit.emit()
+    }, (error: any) => {
+      this.sharedAlert.addAlert({uuid: v4(), type: 'danger', title: 'Error saving data!'})
+      console.error('Error saving data:', error);
+    });     
+  }
+
+  updateMission(formattedData: any){
+    this.missionsService.updateMission(formattedData)
+    .subscribe((response: any) => {
+      this.sharedAlert.addAlert({uuid: v4(), type: 'success', title: 'Mission successfully registered'});
+      this.typeFormEmit.emit()
+    }, (error: any) => {
+      this.sharedAlert.addAlert({uuid: v4(), type: 'danger', title: 'Error saving data!'})
+      console.error('Error saving data:', error);
+    });     
   }
 
   edit(){
@@ -221,5 +226,14 @@ export class FormMissionsComponent {
     }
 
     return text
+  }
+
+  closeModalDelete(){
+    this.isDelete = false
+    this.typeFormEmit.emit()
+  }
+
+  delete(){
+    this.isDelete = true
   }
 }

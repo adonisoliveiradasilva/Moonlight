@@ -17,6 +17,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE, MatNativeDateModule } from '@angular/material/core';
 import { DatePipe } from '@angular/common';  // Importe o DatePipe aqui
 import { MomentDateAdapter } from '@angular/material-moment-adapter';
+import { DeleteComponent } from './components/delete/delete.component';
 
 export const MY_FORMATS = {
   parse: {
@@ -38,7 +39,8 @@ export const MY_FORMATS = {
     PageNotFoundComponent,
     AlertStatusComponent,
     MissionsComponent,
-    FormMissionsComponent
+    FormMissionsComponent,
+    DeleteComponent
   ],
   imports: [
     BrowserModule,

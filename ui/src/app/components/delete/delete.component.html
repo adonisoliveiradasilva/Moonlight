@@ -1,0 +1,32 @@
+<div class="all-content">
+    <div class="close" (click)="exitModal()">
+        <i class="fas fa-xmark"></i>
+    </div>
+
+    <div class="row row-center">
+        <div class="alert">
+            <i class="fas fa-triangle-exclamation"></i>
+        </div>
+    </div>
+    <div class="row row-center">
+        <span class="title"> Are you sure? </span>
+    </div>
+    <div class="row row-center">
+        <span class="subtitle">
+            This action cannot be undone. All values associated whit this field will be lost.
+        </span>
+    </div>
+
+    <div class="row row-center">
+        <button (click)="deleteElement()">
+            Delete
+        </button>
+    </div>
+
+    <div class="row row-center">
+        <span class="cancel" (click)="exitModal()">
+            Cancel
+        </span>
+    </div>
+
+</div>

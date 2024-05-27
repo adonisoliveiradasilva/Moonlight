@@ -36,5 +36,9 @@ export class MissionsService {
   updateMission(missionData: IMission): Observable<any> {
     return this.httpClient.put<any>(`${this.API_PATH}missions`, missionData);
   }
+
+  deleteMission(missionId: number): Observable<any> {
+    return this.httpClient.delete<any>(`${this.API_PATH}missions/${missionId}`);
+  }
   
 }

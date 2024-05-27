@@ -203,13 +203,13 @@
     transition: all .5s ease-in-out;
 }
 
-.blurred-background{
-    position: absolute;
-    z-index: 100;
-    background-color: rgba(#000000, .8);
-    width: calc(100vw - 5vh);
-    height: 100vh;
-    left: 0;
-    top: 0;
-    transition: all .5s ease-in-out!important;
-}
+// .blurred-background{
+//     position: absolute;
+//     z-index: 102;
+//     background-color: rgba(#000000, .8);
+//     width: calc(100vw - 5vh);
+//     height: 100vh;
+//     left: 0;
+//     top: 0;
+//     transition: all .5s ease-in-out!important;
+// }

@@ -1,0 +1,89 @@
+@import '../../../assets/variables.scss';
+
+.all-content{
+    width: 40vh;
+    height: auto;
+    background-color: $white-4;
+    border-radius: .5vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    padding: 1vh;
+    gap: 1vh;
+
+    .close{
+        width: 3vh;
+        height: 3vh;
+        padding: 1vh;
+        border-radius: 3vh;
+        background-color: $gray-2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: -1vh;
+        right: -1vh;
+        cursor: pointer;
+
+        i{
+            font-size: 1.6vh;
+            font-weight: 600;
+            color: $white-1;
+        }
+    }
+
+    .alert{
+        background-color: rgba($red-1, .2);
+        color: rgba($red-1, .9);
+        padding: 1vh;
+        font-size: 3vh;
+        border-radius: 100%;
+        width: 6vh;
+        height: 6vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .title{
+        font-size: 2vh;
+        color: $black-1;
+    }
+
+    .subtitle{
+        font-size: 1.5vh;
+        color: $gray-2;
+        text-align: center;
+    }
+
+    button{
+        border: none;
+        background-color: rgba($red-1, .8);
+        width: 90%;
+        height: 4vh;
+        font-size: 1.6vh;
+        border-radius: .5vh;
+        color: $white-1;
+        margin-top: 2vh;
+        cursor: pointer;
+
+        &:hover{
+            background-color: rgba($red-1, .9);
+        }
+    }
+
+    .cancel{
+        text-align: center;
+        margin-bottom: 2vh;
+        cursor: pointer;
+        color: rgba($red-1, .7);
+
+        &:hover{
+            color: rgba($red-1, 1);
+        }
+    }
+
+}
