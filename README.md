@@ -1,34 +1,52 @@
-## Moonlight
-# Este projeto conta com o desenvolvimento de um sistema para a plataforma web, e tem como objetivo ser um controle de viagens espaciais da NASA, 
-# Onde é possível criar novas missões espaciais, fazer controle de acesso de Astronautas, Administradores de Houston, Foguetes e das próprias Missões Espaciais
-# A base de dados é inicializada com as missões Apollo, tendo os Foguetes e Astronautas que fizeram parte do projeto Apollo.
-# As administradoras cadastradas são as protagonistas do filme 'Estrelas Além do Tempo'
+# Moonlight – Sistema de Controle de Missões Espaciais da NASA
 
-# Dependências do projeto
-# * node 18.17^
-# * Angular Material: ng add @angular/material
-# * Font Awesome: npm install @fortawesome/fontawesome-free
-# *
-# *
+Este projeto é uma aplicação web para gerenciamento de missões espaciais da NASA. Ele permite:
 
-# UI
-# * Angular 16
-# * Pacote de dependências Yarn
-# * Material 
-# * Prime Ng
-# * Fonte Awesome
+- Criação de novas missões espaciais
+- Controle de acesso para astronautas, administradoras de Houston, foguetes e missões
+- Base de dados inicial com as missões Apollo
+- Foguetes e astronautas do Projeto Apollo já cadastrados
+- Administradoras baseadas nas personagens do filme "Estrelas Além do Tempo"
 
-# Como iniciar o projeto UI
-# acesse a pasta Moonlight/ui
-# atualize as dependências: yarn install
-# inicialize o projeto: npm start
-# verifique em qual rota ficará disponível, por padrão acesse em seu navegador: localhost:4200 
+## Tecnologias Utilizadas
 
-## API
-# * flask-3.0.3
+### UI (Frontend)
 
-# Como iniciar o projeto API
-# acesse a pasta Moonlight/api
-# instale as dependências: pip install -r requirements.txt
-# inicialize o projeto: python app.py
-# verifique em qual rota ficará disponível, por padrão acesse em seu navegador: localhost:5000
+- Angular 16
+- Angular Material (`ng add @angular/material`)
+- PrimeNG
+- Font Awesome (`npm install @fortawesome/fontawesome-free`)
+- Yarn (gerenciador de pacotes)
+
+### API (Backend)
+
+- Flask 3.0.3
+
+## Como Rodar o Projeto
+
+### UI
+1. Acesse a pasta da interface:
+- cd Moonlight/ui
+2. Instale as dependências:
+- yarn install
+3. Inicie o projeto:
+- npm start
+4. Acesse no navegador:
+- http://localhost:4200
+
+### API
+
+1. Acesse a pasta da API:
+- cd Moonlight/api
+2. Instale as dependências:
+- pip install -r requirements.txt
+3. Inicie o servidor:
+- python app.py
+4. Acesse no navegador:
+- http://localhost:5000
+
+## Requisitos
+
+- Node.js ^18.17
+- Yarn
+- Python 3.x
